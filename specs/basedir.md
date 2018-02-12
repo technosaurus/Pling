@@ -121,7 +121,7 @@ runtime memory and cannot necessarily be swapped out to disk.
 ## Referencing this specification
 
 Other specifications may reference this specification by specifying
-the location of a data file as $XDG_DATA_DIRS/subdir/filename.
+the location of a data file as `$XDG_DATA_DIRS/subdir/filename`.
 This implies that:
 
   * Such file should be installed to `$datadir/subdir/filename`
