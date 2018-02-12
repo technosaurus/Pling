@@ -420,7 +420,7 @@ Table 12. Standard Status Icons
 |weather-snow|The icon used while snow showers are occurring in a region.
 |weather-storm|The icon used while storms are occurring in a region.
 
-*A. *
+*A.*
 ## Change History
 
 ### Version 0.8, 1 August 2006, Rodney Dawes. 
