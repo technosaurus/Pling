@@ -172,7 +172,7 @@ equivalent.
 Multiple keys in the same group may not have the same name.
 Keys in different groups may have the same name.
 
-##Possible value types
+## Possible value types
 
 The value types recognized are
 string, localestring, boolean, and numeric.
