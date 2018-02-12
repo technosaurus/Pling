@@ -118,7 +118,7 @@ When an Autostart file has been detected and the user has confirmed
 its execution the autostart file MUST be executed with the current
 working directory (CWD) set to the root directory of the medium.
 
-###Autoopen Files
+### Autoopen Files
 
 When a new medium is mounted and 
 a) the medium does not contain an Autostart file or 
