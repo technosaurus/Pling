@@ -2,11 +2,11 @@
 
 ## Table of Contents
 
-[Overview](#overview)
-[Context](#context)
-[Icon Naming Guidelines](#icon-naming-guidelines)
-[Standard Icon Names](#standard-icon-names)
-A. [Change History](#change-history)
+  - [Overview](#overview)
+  - [Context](#context)
+  - [Icon Naming Guidelines](#icon-naming-guidelines)
+  - [Standard Icon Names](#standard-icon-names)
+  - A. [Change History](#change-history)
 
 ## Overview
 
@@ -299,7 +299,7 @@ Table 8. Standard Emotion Icons
 |face-cool|The icon used for the B-) emote.
 |face-crying|The icon used for the :'( emote.
 |face-devilish|The icon used for the >:-) emote.
-|face-embarrassed|The icon used for the :-[ emote.
+|face-embarrassed|The icon used for the :-\[ emote.
 |face-kiss|The icon used for the :-* emote.
 |face-laugh|The icon used for the :-)) emote.
 |face-monkey|The icon used for the :-(|) emote.
@@ -420,7 +420,7 @@ Table 12. Standard Status Icons
 |weather-snow|The icon used while snow showers are occurring in a region.
 |weather-storm|The icon used while storms are occurring in a region.
 
-A. 
+*A. *
 ## Change History
 
 ### Version 0.8, 1 August 2006, Rodney Dawes. 
