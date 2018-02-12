@@ -25,9 +25,7 @@
   * B. [Currently reserved for use within KDE](#currently-reserved-for-use-within-kde)
   * C. [Deprecated Items](#deprecated-items)
   * D. [The Legacy-Mixed Encoding](#the-legacy-mixed-encoding) (Deprecated)
-  * E. [Changes to this Specification](#changes-to-this-specification)
-    - [Changes from version 1.1 to 1.2](#changes-from-version-11-to-12)
-    - [Changes from version 1.0 to 1.1](#changes-from-version-10-to-11)
+  * E. [Changes to this Specification](CHANGELOG.md#desktop-entry-specification)
 
 ## Introduction
 
@@ -732,28 +730,3 @@ This is necessary because, for example, Big5 is frequently found
 instead of BIG5 and georgianacademy instead of GEORGIAN-ACADEMY.
 Desktop files creators should, however, use the name
 as it appears in the "Encoding" column above.
-
-**E.**
-## Changes to this Specification
-
-### Changes from version 1.1 to 1.2
-
-New section "File naming", to formalize file names, with relation to D-Bus naming.
-
-Add Implements key.
-
-Specify XDG_CURRENT_DESKTOP.
-
-### Changes from version 1.0 to 1.1
-
-Add DBusActivatable key.
-
-Add support for Actions.
-
-Add Keyword key.
-
-Make Exec key mandatory.
-
-Make Version key a string.
-
-Make UnmountIcon key a localestring.
