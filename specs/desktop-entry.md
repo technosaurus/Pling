@@ -1,6 +1,6 @@
-**Desktop Entry Specification**
+# Desktop Entry Specification
 
-*Table of Contents*
+## Table of Contents
 
   * [Introduction](#introduction)
   * [File naming](#file-naming)
@@ -29,7 +29,7 @@
     - [Changes from version 1.1 to 1.2](#changes-from-version-11-to-12)
     - [Changes from version 1.0 to 1.1](#changes-from-version-10-to-11)
 
-### Introduction
+## Introduction
 
 Both the KDE and GNOME desktop environments have adopted a similar format for
 "desktop entries", or configuration files describing how a particular program
@@ -39,7 +39,7 @@ upon by all parties such that interoperation between the two environments,
 and indeed any additional environments that implement the specification,
 becomes simpler.
 
-### File naming
+## File naming
 
 Desktop entry files should have the .desktop extension, except for files of
 Type Directory which should have the .directory extension.
@@ -78,7 +78,7 @@ If the author's domain name contains a label starting with a digit,
 to that element of the desktop entry name is recommended.
 For example, 7-zip.org might release an application named org._7_zip.Archiver.
 
-## Desktop File ID
+### Desktop File ID
 
 Each desktop entry representing an application is identified by its desktop
 file ID, which is based on its filename.
@@ -105,7 +105,7 @@ is selected.
 If the desktop file is not installed in an applications subdirectory of
 one of the $XDG_DATA_DIRS components, it does not have an ID.
 
-### Basic format of the file
+## Basic format of the file
 
 Desktop entry files are encoded in UTF-8. A file is interpreted as a
 series of lines that are separated by linefeed characters.
@@ -117,7 +117,7 @@ list somewhere, and if the file is "rewritten", they will be included.
 This ensures that any desktop-specific extensions will be preserved
 even if another system accesses and changes the file.
 
-## Comments
+### Comments
 
 Lines beginning with a # and blank lines are considered comments and
 will be ignored, however they should be preserved across reads and
@@ -128,7 +128,7 @@ Comment lines are uninterpreted and may contain any character
 However, using UTF-8 for comment lines that contain characters not
 in ASCII is encouraged.
 
-## Group headers
+### Group headers
 
 A group header with name groupname is a line in the format:
 
@@ -153,7 +153,7 @@ MIME type detection.
 There should be nothing preceding this group in the desktop entry
 file but possibly one or more comments.
 
-## Entries
+### Entries
 
 Entries in the file are {key,value} pairs in the format:
 
@@ -202,7 +202,7 @@ value of the key may be optionally terminated by a semicolon.
 Trailing empty strings must always be terminated with a semicolon.
 Semicolons in these values need to be escaped using \;.
 
-### Localized values for keys
+## Localized values for keys
 
 Keys with type localestring may be postfixed by [LOCALE],
 where LOCALE is the locale type of the entry.
@@ -257,7 +257,7 @@ category is sr_YU@Latn and the desktop file includes:
 
 then the value of the Name keyed by sr_YU is used.
 
-### Recognized desktop entry keys
+## Recognized desktop entry keys
 
 Keys are either OPTIONAL or REQUIRED.
 If a key is OPTIONAL it may or may not be present
@@ -307,7 +307,7 @@ Some example keys: Name[C], Comment[it].
 | StartupWMClass | If specified, it is known that the application will map at least one window with the given string as its WM class or WM name hint (see the Startup Notification Protocol Specification for more details). | string | NO | 1 |
 | URL | If entry is Link type, the URL to access. | string | YES | 2 |
 
-### The Exec key
+## The Exec key
 
 The Exec key must contain a command line.
 A command line consists of an executable program
@@ -400,7 +400,7 @@ Field codes must not be used inside a quoted argument, the result
 of field code expansion inside a quoted argument is undefined.
 The %F and %U field codes may only be used as an argument on their own.
 
-### D-Bus Activation
+## D-Bus Activation
 
 Applications that support being launched by D-Bus must implement
 the following interface (given in D-Bus introspection XML format):
@@ -452,7 +452,7 @@ This should be a string of the same value as would be stored in the
 DESKTOP_STARTUP_ID environment variable, as specified by the
 Startup Notification Protocol Specification.
 
-### Interfaces
+## Interfaces
 
 The Implements key can be used to declare one or more
 interfaces that a desktop file implements.
@@ -492,7 +492,7 @@ delete all of the user's files without confirmation".
 Interface definers should take care to keep issues of backward and
 forward compatibility in mind when designing their interfaces.
 
-### Registering MIME Types
+## Registering MIME Types
 
 The MimeType key is used to indicate the MIME Types that an application
 knows how to handle. It is expected that for some applications this list
@@ -504,7 +504,7 @@ There should be no priority for MIME Types in this field, or any form
 of priority in the desktop file.
 Priority for applications is handled external to the .desktop files.
 
-### Additional applications actions
+## Additional applications actions
 
 Desktop entries of type Application can include one or more actions.
 An action represents an additional way to invoke the application.
@@ -512,7 +512,7 @@ Application launchers should expose them to the user
 (for example, as a submenu) within the context of the application.
 This is used to build so called "Quicklists" or "Jumplists".
 
-## Action identifier
+### Action identifier
 
 Each action is identified by a string, following the same format
 as key names (see the section called “Entries”).
@@ -525,7 +525,7 @@ It is not valid to have an action group for an action identifier
 not mentioned in the Actions key.
 Such an action group must be ignored by implementors.
 
-## Action keys
+### Action keys
 
 The following keys are supported within each action group.
 If a REQUIRED key is not present in an action group,
@@ -537,7 +537,7 @@ Table 3. Action Specific Keys
 | Icon | Icon to be shown togheter with the action. If the name is an absolute path, the given file will be used. If the name is not an absolute path, the algorithm described in the Icon Theme Specification will be used to locate the icon. Implementations may choose to ignore it. | localestring | NO |
 | Exec | Program to execute for this action, possibly with arguments. See the Exec key for details on how this key works. The Exec key is required if DBusActivatable is not set to true in the main desktop entry group. Even if DBusActivatable is true, Exec should be specified for compatibility with implementations that do not understand DBusActivatable. | string | NO |	 
 
-## Implementation notes
+### Implementation notes
 
 Application actions should be supported by implementors.
 However, in case they are not supported, implementors can simply
@@ -550,7 +550,7 @@ It is not expected that other desktop components showing application lists
 (software installers, for instance) will provide any user interface for these actions.
 Therefore applications must only include actions that make sense as general launchers.
 
-### Extending the format
+## Extending the format
 
 If the standard is to be amended with a new {key,value} pair which should be
 applicable to all supporting parties, a group discussion will take place.
@@ -566,7 +566,7 @@ i.e. [X-PRODUCT GROUPNAME] or something similar.
 These steps will avoid namespace clashes between different yet similar environments.
 
 **A.** 
-### Example Desktop Entry File
+## Example Desktop Entry File
 
 ```
 [Desktop Entry]
@@ -591,7 +591,7 @@ Icon=fooview-new
 ```
 
 **B.**
-### Currently reserved for use within KDE
+## Currently reserved for use within KDE
 
 For historical reasons KDE is using some KDE-specific extensions
 that are currently not prefixed by a X-KDE- prefix.
@@ -618,7 +618,7 @@ KDE uses the following additional keys for desktop entries of the FSDevice type.
 | UnmountIcon | Icon to display when device is not mounted. Mounted devices display icon from the Icon key. | localestring
 
 **C.**
-### Deprecated Items
+## Deprecated Items
 
 As this standard is quite old there are some deprecated items
 that may or may not be used by several implementations.
@@ -646,7 +646,7 @@ that may or may not be used by several implementations.
   * Historically lists have been comma separated. This is inconsistent with other lists which are separated by a semicolon. When reading a pre-1.0 desktop entry, comma separated lists should continue to be supported.
 
 **D.**
-### The Legacy-Mixed Encoding
+## The Legacy-Mixed Encoding
 **(Deprecated)**
 
 The Legacy-Mixed encoding corresponds to the traditional encoding of
@@ -734,9 +734,9 @@ Desktop files creators should, however, use the name
 as it appears in the "Encoding" column above.
 
 **E.**
-### Changes to this Specification
+## Changes to this Specification
 
-## Changes from version 1.1 to 1.2
+### Changes from version 1.1 to 1.2
 
 New section "File naming", to formalize file names, with relation to D-Bus naming.
 
@@ -744,7 +744,7 @@ Add Implements key.
 
 Specify XDG_CURRENT_DESKTOP.
 
-## Changes from version 1.0 to 1.1
+### Changes from version 1.0 to 1.1
 
 Add DBusActivatable key.
 
