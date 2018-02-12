@@ -26,8 +26,8 @@
   * C. [Deprecated Items](#deprecated-items)
   * D. [The Legacy-Mixed Encoding](#the-legacy-mixed-encoding) (Deprecated)
   * E. [Changes to this Specification](#changes-to-this-specification)
-    - [Changes from version 1.1 to 1.2](#changes-from-version-1.1-to-1.2)
-    - [Changes from version 1.0 to 1.1](#changes-from-version-1.0-to-1.1)
+    - [Changes from version 1.1 to 1.2](#changes-from-version-11-to-12)
+    - [Changes from version 1.0 to 1.1](#changes-from-version-10-to-11)
 
 ### Introduction
 
