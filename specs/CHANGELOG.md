@@ -5,6 +5,7 @@
   * [Desktop Entry Specification](#desktop-entry-specification)
   * [Icon Naming Specification](#icon-naming-specification)
   * [MPRIS Specification](#mpris-specification)
+  * [Recent Files Specification](#recent-files-specification)
 
 ## Desktop Entry Specification
 
@@ -37,7 +38,7 @@
   * Rename "media-cdrom" to "media-optical"
   * Add "media-flash", "media-tape", and "modem"
   * Add "security-high", "security-medium", and "security-low"
-
+  
 ### Version 0.7, 15 February 2006, Rodney Dawes. 
 
   * Remove the wallpaper-* icon names
@@ -117,3 +118,16 @@
 
   * 2012-08-07: Clarified behaviour of the Play method of the Player
     interface when paused.
+
+## Recent Files Specification
+  
+### Version 0.2, 12 August 2002, James Willcox. 
+
+  * Switched from flat-file storage to XML. This was done to
+    facilitate easier storage of meta-data.
+    Files can now belong to "groups", and the timestamp is
+    now a required piece of meta-data.
+
+### Version 0.1, 8 July 2002, James Willcox. 
+
+  * Created initial draft.
