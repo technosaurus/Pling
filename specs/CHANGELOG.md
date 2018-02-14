@@ -2,7 +2,9 @@
 
 ## Table of Contents
 
-[Desktop Entry Specification](#desktop-entry-specification)
+  * [Desktop Entry Specification](#desktop-entry-specification)
+  * [Icon Naming Specification](#icon-naming-specification)
+  * [MPRIS Specification](#mpris-specification)
 
 ## Desktop Entry Specification
 
@@ -94,3 +96,24 @@
 ### Version 0.1, 29 March 2005, Rodney Dawes. 
 
   * Created initial draft.
+
+## MPRIS Specification
+
+### From 2.1 to 2.2:
+
+  * Added the optional Fullscreen and CanSetFullscreen properties to the
+    org.mpris.MediaPlayer2 interface.
+  * The path /org/mpris/MediaPlayer2/TrackList/NoTrack now represents
+    "no track" where required in the   org.mpris.MediaPlayer2.TrackList
+    interface (since empty paths are not allowed by D-Bus).
+  * The suggested unique instance identifier no longer violates the D-Bus
+    specification by begining with a digit.
+
+### From 2.0 to 2.1:
+
+  * Added the optional org.mpris.MediaPlayer2.Playlists interface.
+
+### Corrections
+
+  * 2012-08-07: Clarified behaviour of the Play method of the Player
+    interface when paused.
