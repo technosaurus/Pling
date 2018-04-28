@@ -54,6 +54,7 @@ As a big bonus, most .desktop files have localized descriptions and user recogni
 It will just look similar to any first run dialog.
 For example, The first time a user tries to open a pdf, they will get a dialog that shows details for mupdf, evince, xpdf, epdfview,...
 This could set the default handler and open the pdf or even let them try and compare each one.
+Note: XDG specs don't specify the difference between opening and editing - just handling (Needs correction)
 
 ## System Configuration ##
 All basic configuration will have a command line utility or wrapper in the form of a multicall shell script (similar to busybox)
