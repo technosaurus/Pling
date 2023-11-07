@@ -49,7 +49,7 @@ As the executable tries to access/open/stat files, they are automatically cached
 
 ## Mime-Type handling ##
 If the user tries to xdg-open an unsupported file (no default handler) it can be difficult for them to figure out what to install.
-Since we don't have to bother with a traditional package manager, we can simply grok the .desktop files and offer the user multiple options.
+Since we don't have to bother with a traditional package manager, we can simply grok the *mimeapps.list or .desktop files and offer the user multiple options.
 As a big bonus, most .desktop files have localized descriptions and user recognizable icons, so the user will barely notice the process.
 It will just look similar to any first run dialog.
 For example, The first time a user tries to open a pdf, they will get a dialog that shows details for mupdf, evince, xpdf, epdfview,...
