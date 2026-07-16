@@ -66,6 +66,36 @@ These will be designed to interface with multiple frontends including:
   * Desktop environment specific versions like gtkdialog for gtk
 
 ## Fault tolerant base system ## 
+
 All essential programs/scripts will be included in the local filesytem and statically compiled.
 Initially, this will be xfbdev, jwm, st, netsurf-framebuffer and busybox compiled against musl-libc.
 Additional command line binaries will be patched into busybox as needed and the X apps will be in a single separate multicall binary.
+
+
+## Roadblocks ##
+
+# Historical Baggage
+
+The Linux kernel has baggage deriving from its desire for backwards compatibility and originating on a register starved 386 that used a stack based calling convention, historical bolted on struct definitions and the basic structure of Unix. Each newly supportef architecture after 386 has been a bolt on with recognized problems of prior architectures omitted, which is great for that new architecture but doesn't help the old one bound by backwards compatibility requirements. This has led to every C library to hack in some inline assembly for every supported architecture just to _start a program and to bloat the source with a spaghetti maze if ifdefs just to handle struct definitions and inexplicably varying basic syscall numbers
+
+## Reality - Everything sucks, but it's fine. ##
+
+The Linux kernel has too much inertia to change. No size ordered structs, no shared syscall numbers, no using the same registers for syscalls as function calls. This means we can't use tools like llvm intermediate representation or its corresponding bitcode to compile a single mybinary.bc that can be 99% optimized inside the package using `clang -march=generic64 ... ` and then seamlessly converted to the exact architecture to take advantage of the full machine capacity using `llc -march=native` to reduce server space by as much as 10 fold while providing the user a better product. That's fine, we can get around those problems on an architecture by architecture basis. Sure it leads to some amount of tribalism, but in some cases that's beneficial - the X86 distro manager doesn't need to know or care about the latest arm or ppc vulnerability. That's all fine, we can have multiple build systems for each architecture.
+
+Then you get to the underlying systems where the defacto libc is practically useless for static builds (yes we have musl for that), large and built on code that even to an intermediate C programmer looks like PFM. Fine, we can have 2 separate build systems for static vs. shared.
+
+Since we are no longer in the command line era, we need to look at graphical environments, which has devolved to X11 vs Wayland. For X11 you get a code legacy built on the legacy of stack based calling convention (no xcb didn't learn and do better, they just made it asynchronously bad) where functions take argument in struct order so that old cdecl calling conventions would have the X request data already lined up, but when the first n parameters are passed on the stack, the compiler gets to play shuffle the musical chairs for several cycles just to format the request. And then you have Wayland which got some of the failures of X right but decided to find new ways to suck to the point where after longer than the time between X11 and the start of Wayland we barely see anything developed exclusively for it or even as an option except for a couple GUI toolkits that bring apps along for free. That's fine, we can use Xwayland (or realistically just keep Xorg until something better replaces Wayland)
+
+Realistically the 1 area where we have bike sheds in every shape, size and color is desktop environment and window managers to the point where one could get analysis paralysis. That's fine, I still like jwm because it reminds me of my first Packard Bell and its easy to morph into just about anything... good enough is good enough.
+
+One area of optimism is the browser. While actively maintained browser engines have decreased, the quality and speed has drastically improved for the remaining competition, but everyone has their preferences. That's fine, just let the user choose their poison based on their own tastes.
+
+I could get into all the other application categories and suites, but the reality is that most people use online apps for their day to day tasks. That's fine, we can just let the user choose their tools when they start the task, that's why we have MIME types and package managers.
+
+## Executive Summary ##
+
+People just want a system that starts fast and does what they want but nothing more. If an included application is useful or may be, they let it slide or ignore it until it gets in the way. We have managed to cobble together 100s of distros that cater to every kind of computer nerd but only a few that reach beyond that.
+
+## Conclusion ##
+
+I'm not building a distro. I'm assembling a set of tools that can make it simple for anyone to intuitively allow their own perfect distro to magically grow inside their computers with minimal thought or interaction.
