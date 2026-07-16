@@ -29,10 +29,11 @@ Linux kernel
 
   ## Desktop System ##
 
-  jwm will provide
-    - full access to the entire package manager via menu
-    - basic filesystem navigation via generated menus
-    - standard wm menus for installed programs
-    - standard MIME types get menu entry to select handler
-    - interactions using top layer buttons and refresh (jwm tools)
-    - pretty much all necessities via ashbox + hacks
+jwm will provide
+  
+   - full access to the entire package manager via menu
+  - basic filesystem navigation via generated menus
+  - standard wm menus for installed programs
+  - standard MIME types get menu entry to select handler
+  - interactions using top layer buttons and refresh (jwm tools)
+  - pretty much all necessities via ashbox + hacks
